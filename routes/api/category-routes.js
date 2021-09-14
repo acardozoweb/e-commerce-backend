@@ -49,12 +49,10 @@ router.put('/:id', (req, res) => {
   // update a category by its `id` value (PUT api/categories/:id)
   Category.update(req.body, {
     where: {
-      id: req.body.id
-    }
+      id: req.params.id
+      }
   })
-  .then(data => {
-    console.log('route to update category by id', data)
-    res.json(data)})
+  .then(data => {res.json(data)})
 });
 
 router.delete('/:id', (req, res) => {
@@ -64,9 +62,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(data => 
-    console.log('route to delete category by id', data),
-    res.json(data))
+  .then(data => res.json(data))
 });
 
 module.exports = router;
